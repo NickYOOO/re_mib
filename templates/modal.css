@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard-Regular';
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+input, textarea, select {
+    margin: 0;
+    padding: 15px;
+    border-radius: 0;
+    border: 0;
+    font-size: 16px;
+    outline: 0;
+    vertical-align: middle;
+}
+
+button {
+    border: 0;
+    font-size: 16px;
+}
+
+legend {
+    position: absolute;
+    top: -50000px;
+    left: -50000px;
+}
+
+fieldset {
+    border: 0;
+    margin: 20px 0;
+}
+
+label {
+    width: 360px;
+    height: 100%;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    color: #707070;
+}
+
+.title span {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.box {
+    width: 360px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    margin-top: 15px;
+}
+
+#star {
+    width: 330px;
+    padding: 0;
+    margin: 15px;
+    color: #707070;
+}
+
+#comment {
+    width: 100%;
+}
+
+.btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-area>button {
+    width: 160px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    color: #fff;
+    background-color: #888;
+}

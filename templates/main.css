@@ -5,7 +5,7 @@
 
 header {
   background-color: #911F27;
-  height: 150px;
+  height: 70px;
   position: fixed;
   top: 0;
   left: 0;
@@ -106,9 +106,9 @@ section.inner {
 }
 
 /* 궁금 */
-.btn>div {
+/* .btn {
   margin: 0px 30px;
   text-align: center;
   font-size: 24px;
-  font-weight: 70px;
-}
+  font-weight: 700;
+} */
