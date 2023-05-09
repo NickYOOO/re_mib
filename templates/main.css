@@ -1,0 +1,114 @@
+.inner {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #911F27;
+  height: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+
+header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .inner img {
+  width: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+section.inner {
+  margin-top: 80px;
+}
+
+#columns {
+  column-width: 350px;
+  column-gap: 15px;
+}
+
+#columns figure {
+  display: inline-block;
+  text-align: center;
+
+  margin: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+
+  border-radius: 40px;
+}
+
+#columns figure img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+#columns figure figcaption.name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #630A10;
+  padding: 10px;
+  margin-top: 11px;
+}
+
+#columns figure figcaption.star {
+  padding: 10px;
+  border-radius: 18px;
+  color: white;
+  background-color: #4E6C50;
+}
+
+#columns figure figcaption.caption {
+  padding: 10px;
+  color: #617A55;
+}
+
+.btnarea {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+
+  width: 300px;
+  height: 75px;
+
+  background-color: #630A10;
+  color: #FCF0C8;
+  font-size: 20px;
+
+  border-radius: 50px;
+  border: 2px solid whitesmoke;
+
+  position: fixed;
+  bottom: 50px;
+  /* 궁금 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: #E5DCC3;
+  color: #C7BEA2;
+  border: 5px solid #AAA492;
+  /* 궁금 */
+  box-sizing: border-box;
+}
+
+/* 궁금 */
+.btn>div {
+  margin: 0px 30px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 70px;
+}
