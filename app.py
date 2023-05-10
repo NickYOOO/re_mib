@@ -17,25 +17,25 @@ def home():
 def re_min_post():
     name_receive = request.form['name_give']
     star_receive = request.form['star_give']
-    caption_receive = request.form['caption_give']
+    comment_receive = request.form['comment_give']
     img_receive = request.form['img_give']
-    password_receive = request.form['password_give']
+    pw_receive = request.form['pw_give']
 
 
     doc = {
         'name' : name_receive,
         'star' : star_receive,
-        'caption' : caption_receive,
+        'comment' : comment_receive,
         'img' : img_receive,
-        'password' : password_receive
+        'pw' : pw_receive
     }
 
     db.re_min.insert_one(doc)
-    return jsonify({'msg':'POST 연결 완료!'})
+    return jsonify({'msg':'작성완료'})
 
 @app.route('/re_min', methods=["GET"])
 def re_min_get():
-    all_re_min = list(db.re_min.find({},{'_id':False}))
+    all_re_min = list(db.remin.find({},{'_id':False}))
     return jsonify({'result' : all_re_min})
 
 if __name__ == '__main__':

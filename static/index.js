@@ -11,7 +11,7 @@ $(function () {
                 let image = a['image']
                 let name = a['name']
                 let star = a['star']
-                let caption = a['caption']
+                let comment = a['comment']
 
                 let star_repeat = '⭐'.repeat(star)
 
@@ -22,10 +22,10 @@ $(function () {
                                          ${name}
                                      </figcaption>
                                      <figcaption class="star">
-                                         ${star}
+                                         ${star_repeat}
                                      </figcaption>
                                      <figcaption class="caption">
-                                          ${caption}
+                                          ${comment}
                                       </figcaption>
                                  </figure>`
                 $('#colums').prepend(temp_html)
@@ -37,15 +37,17 @@ $(function () {
     function save_remin() {
         let name = $('#name').val()
         let star = $('#star').val()
-        let caption = $('#caption').val()
+        let comment = $('#comment').val()
         let img = $('#img').val()
+        let pw = $('#pw').val()
+
 
         let formData = new FormData();
         formData.append("name_give", name);
         formData.append("star_give", star);
         formData.append("caption_give", caption);
         formData.append("img_give", img);
-
+        formData.append("pw_give", pw);
 
         fetch('/re_min', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
             alert(data['msg'])
