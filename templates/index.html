@@ -5,75 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍽️ RE-MIN</title>
-    <!-- 어떤거? -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="stylesheet" href="./modal.css" />
+
+    <title>re-min</title>
+    <link rel="icon" type="image/x-icon" href="./static/logo2.png">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
-        function listing() {
-            fetch('/main').then((res) => res.json()).then((data) => {
-                let rows = data['result']
-                $('#colums').empty()
-                rows.forEach((a) => {
-                    let image = a['image']
-                    let name = a['name']
-                    let star = a['star']
-                    let comment = a['comment']
+    <link rel="stylesheet" href="../static/index.css" />
 
-                    let star_repeat = '⭐'.repeat(star)
-
-                    let temp_html = `<figure>
-                                        <img src=${image}>
-                                        <p>${name}
-                                        <p>${star_repeat}</p>
-                                        <figcaption>${comment}</figcaption>
-                                     </figure>`
-                    $('#cards-box').append(temp_html)
-                });
-            })
-
-        }
-
-        function open_modal() {
-            let modal = $('.overlay');
-            modal.css({
-                'display': 'block',
-            });
-        };
-        
-        function close_modal() {
-            let modal = $('.overlay')
-            modal.css({
-                'display': 'none'
-            });
-        };
-
-        function posting() {
-            let img = $('#img').val()
-            let name = $('#name').val()
-            let star = $('#star').val()
-            let comment = $('#comment').val()
-
-            let formData = new FormData();
-            formData.append("img_give", img);
-            formData.append("name_give", name);
-            formData.append("star_give", star);
-            formData.append("comment_give", comment);
-
-
-            fetch('/main', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
-                alert(data['msg'])
-                window.location.reload()
-            })
-        }
-    </script>
+    <script src="../static/index.js"></script>
 </head>
 
 <body>
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
         <div class="inner">
             <div class="logo">
@@ -82,7 +26,7 @@
         </div>
     </header>
 
-    <!-- CONTENT -->
+    <!-- Content -->
     <section class="inner">
         <div id="columns">
             <figure>
@@ -211,68 +155,77 @@
                 </figcaption>
             </figure>
         </div>
-        <figure>
-            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
-            <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
-        </figure>
-        <figure>
-            <img src=${image}>
-            <p>${name}
-            <p>${star_repeat}</p>
-            <figcaption>${comment}</figcaption>
-        </figure>
-        </div>
 
+        <!--Button-->
         <div class="btnarea">
-            <button class="btn" onclick="open_modal()">너만의 맛집을 공유해 보아요</button>
+            <button class="share">너만의 맛집을 공유해 보아요</button>
         </div>
 
         <!-- Modal -->
-        <div id="overlay" class="overlay">
-            <div class="modal">
-                <form action="#" name="share" method="post">
-                    <fieldset>
-                        <div class="title">
-                            <p>나만의 맛집 공유하기</p>
-                            <span>re_min</span>
-                        </div>
+        <div id="overlay" class="share-overlay">
+            <form action="#" name="share" method="post" onsubmit="">
+                <fieldset>
+                    <legend>맛집 공유하기</legend>
 
-                        <legend>맛집 공유하기</legend>
-                        <div class="name box">
-                            <label for="aname">
-                                <input type="text" id="name" name="aname" maxlength="12" size="35"
-                                    placeholder="맛집이름을 적어줘">
-                            </label>
-                        </div>
+                    <div class="title">
+                        <p>나만의 맛집 공유하기</p>
+                        <div><img src="../static/img/logo.png" alt="logo"></div>
+                    </div>
 
-                        <div class="star box">
-                            <select name="star" id="star" size="1">
-                                <option value="1" selected>별점 선택하기</option>
-                                <option value="1">⭐</option>
-                                <option value="2">⭐⭐</option>
-                                <option value="3">⭐⭐⭐</option>
-                                <option value="4">⭐⭐⭐⭐</option>
-                                <option value="5">⭐⭐⭐⭐⭐</option>
-                            </select>
-                        </div>
+                    <table>
+                        <colgroup>
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td class="name box">
+                                    <label for="aname">
+                                        <input type="text" id="aname" name="aname" maxlength="12" size="35"
+                                            placeholder="맛집이름을 적어줘" autofocus required>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-star box">
+                                    <select name="star" id="star" size="1">
+                                        <option value="0" selected>별점 선택하기</option>
+                                        <option value="1">⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-comment box">
+                                    <textarea name="comment" id="comment" cols="30" rows="5"
+                                        placeholder="후기를 적어줘"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-image box">
+                                    <input type="text" id="image" name="image" maxlength="100" size="35"
+                                        placeholder="이미지 url을 적어줘" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-pw box">
+                                    <input type="password" id="pw" name="pw" maxlength="15" size="35"
+                                        placeholder="비밀번호를 적어줘" required>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <div class="comment box">
-                            <textarea name="comment" id="comment" cols="30" rows="5" placeholder="후기를 적어줘"></textarea>
-                        </div>
-
-                        <div class="image box">
-                            <input type="text" id="image" name="image" maxlength="100" size="35"
-                                placeholder="이미지 url을 적어줘">
-                        </div>
-
-                        <div class="btn-area">
-                            <button class="submit">작성하기</button>
-                            <button onclick="close_modal()">취소</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+                    <div class="modal-btn-area">
+                        <button class="submit">작성하기</button>
+                        <button class="cancel">취소하기</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
+    </section>
 </body>
 
 </html>

@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard-Regular';
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.inner {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #911F27;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .inner img {
+    width: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section.inner {
+    margin-top: 80px;
+}
+
+#columns {
+    column-width: 350px;
+    column-gap: 15px;
+}
+
+#columns figure {
+    display: inline-block;
+    text-align: center;
+
+    margin: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+
+    border-radius: 40px;
+}
+
+#columns figure img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+#columns figure figcaption.name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #630A10;
+    padding: 10px;
+    margin-top: 11px;
+}
+
+#columns figure figcaption.star {
+    padding: 10px;
+    border-radius: 18px;
+    color: white;
+    background-color: #4E6C50;
+}
+
+#columns figure figcaption.caption {
+    padding: 10px;
+    color: #617A55;
+}
+
+.btnarea {
+    display: flex;
+    justify-content: center;
+}
+
+.share {
+
+    width: 300px;
+    height: 75px;
+
+    background-color: #630A10;
+    color: #FCF0C8;
+    font-size: 20px;
+
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+
+    position: fixed;
+    bottom: 50px;
+    /* 궁금 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #E5DCC3;
+    color: #C7BEA2;
+    border: 5px solid #AAA492;
+    /* 궁금 */
+    box-sizing: border-box;
+}
+
+
+
+
+
+.share-overlay input,
+.share-overlay textarea,
+.share-overlay select {
+    margin: 0;
+    padding: 15px;
+    border-radius: 0;
+    border: 0;
+    font-size: 16px;
+    outline: 0;
+    vertical-align: middle;
+}
+
+.share-overlay button {
+    border: 0;
+    font-size: 16px;
+}
+
+legend {
+    position: absolute;
+    top: -50000px;
+    left: -50000px;
+}
+
+fieldset {
+    border: 0;
+    margin: 20px 0;
+}
+
+label {
+    width: 360px;
+    height: 100%;
+}
+
+.share-overlay, .info-overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.share-overlay form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    color: #911F27;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.title > div {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #911F27;
+}
+
+.title img {
+    width: 120px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.box {
+    width: 360px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    margin-top: 15px;
+}
+
+#star {
+    width: 330px;
+    padding: 0;
+    margin: 15px;
+    color: #707070;
+}
+
+#comment {
+    width: 100%;
+}
+
+.modal-btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-btn-area > button {
+    width: 160px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    color: #fff;
+    background-color: #911F27;
+}
