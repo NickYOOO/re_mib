@@ -35,7 +35,7 @@ def re_min_post():
 
 @app.route('/re_min', methods=["GET"])
 def re_min_get():
-    all_re_min = list(db.remin.find({},{'_id':False}))
+    all_re_min = list(db.re_min.find({},{'_id':False}))
     return jsonify({'result' : all_re_min})
 
 if __name__ == '__main__':
