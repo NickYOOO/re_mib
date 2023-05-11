@@ -31,11 +31,14 @@ def re_min_post():
     }
 
     db.re_min.insert_one(doc)
+    print("1번")
     return jsonify({'msg':'작성완료'})
 
 @app.route('/re_min', methods=["GET"])
 def re_min_get():
     all_re_min = list(db.re_min.find({},{'_id':False}))
+    print("2번")
+
     return jsonify({'result' : all_re_min})
 
 if __name__ == '__main__':

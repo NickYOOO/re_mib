@@ -230,7 +230,7 @@ label {
     margin-top: 15px;
 }
 
-.modal-btn-area > button {
+.modal-btn-area > button ,.modal-btn-area > input{
     width: 160px;
     height: 40px;
     padding: 0;
@@ -240,3 +240,4 @@ label {
     color: #fff;
     background-color: #911F27;
 }
+
