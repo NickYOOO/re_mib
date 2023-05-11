@@ -29,7 +29,7 @@
     <!-- Content -->
     <section class="inner">
         <div id="columns">
-            <figure>
+            <!-- <figure>
                 <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cinderella.jpg" />
 
                 <figcaption class="name">
@@ -41,127 +41,34 @@
                 <figcaption class="caption">
                     설명
                 </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/rapunzel.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/belle.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mulan_2.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sleeping-beauty.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pocahontas_2.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/snow-white.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ariel.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg" />
-
-                <figcaption class="name">
-                    식당이름
-                </figcaption>
-                <figcaption class="star">
-                    별점
-                </figcaption>
-                <figcaption class="caption">
-                    설명
-                </figcaption>
-            </figure>
+            </figure> -->    
         </div>
 
         <!--Button-->
+
+        
         <div class="btnarea">
             <button class="share">너만의 맛집을 공유해 보아요</button>
         </div>
 
-        <!-- Modal -->
+        <!-- info Modal  -->
+
+
+        <div id="info" class="info-overlay">
+            <div class="info-flex">
+                <div class="info-image">
+                    <img src="./img/bg1.png" alt="#">
+                </div>
+                <div class="info-text">
+                    <p class="info-name">클렌 커피</p>
+                    <p class="info-star">:별::별::별::별::별:</p>
+                    <p class="info-comment">가나다라마바사아자차카타파하가나다라마바사아자차카타파하</p>
+                </div>
+            </div>
+        </div>
+
+        <!--share Modal  -->
+
         <div id="overlay" class="share-overlay">
             <form>
                 <fieldset>
@@ -179,8 +86,8 @@
                         <tbody>
                             <tr>
                                 <td class="name box">
-                                    <label for="name">
-                                        <input type="text" id="name" name="name" maxlength="12" size="35"
+                                    <label for="aname">
+                                        <input type="text" id="aname" name="aname" maxlength="12" size="35"
                                             placeholder="맛집이름을 적어줘" autofocus required>
                                     </label>
                                 </td>
@@ -205,7 +112,7 @@
                             </tr>
                             <tr>
                                 <td class="modal-image box">
-                                    <input type="text" id="img" name="img" maxlength="100" size="35"
+                                    <input type="text" id="img" name="img" size="35"
                                         placeholder="이미지 url을 적어줘" required>
                                 </td>
                             </tr>
@@ -219,8 +126,7 @@
                     </table>
 
                     <div class="modal-btn-area">
-                        <input type="submit" class="submit" value="작성하기">
-                        <!-- <button class="submit">작성하기</button> -->
+                        <button class="submit">작성하기</button>
                         <button class="cancel">취소하기</button>
                     </div>
                 </fieldset>

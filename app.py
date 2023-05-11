@@ -37,7 +37,6 @@ def re_min_post():
 @app.route('/re_min', methods=["GET"])
 def re_min_get():
     all_re_min = list(db.re_min.find({},{'_id':False}))
-    print("2번")
 
     return jsonify({'result' : all_re_min})
 
