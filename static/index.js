@@ -1,6 +1,6 @@
 $(function () {
     listing()
-})
+
 
 function listing() {
     fetch('/re_min').then((res) => res.json()).then((data) => {
@@ -69,3 +69,4 @@ $('.cancel').click(function () {
 
 $('.submit').click(save_remin)
 
+})
