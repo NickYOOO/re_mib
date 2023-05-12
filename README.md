@@ -30,3 +30,7 @@
 
 ### 상세페이지 모달
 ![3](https://github.com/NickYOOO/re_min/assets/108923582/90c78335-8cf3-478f-9d0f-c4f9086df18a)
+
+
+## Git 전략 규칙
+![스크린샷 2023-05-12 오후 6 18 37](https://github.com/NickYOOO/re_min/assets/108923582/3a652078-5080-47cd-b86c-1efc9b8a79ad)
