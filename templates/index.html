@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
     <head>
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>re-min</title>
-        <link rel="icon" type="image/x-icon" href="./static/logo2.png">
+        <link rel="icon" type="image/x-icon" href="../static/img/logo2.png">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -36,9 +36,13 @@
             <div class="btnarea">
                 <button class="share">너만의 맛집을 공유해 보아요</button>
             </div>
-
+            <!-- info Modal-->
             <div id="info" class="info-overlay">
                 <div class="info-flex">
+                    <div class="edit-icons">
+                        <img src="../static/icon/pencil-lined.svg" alt="#" class="edit">
+                        <img src="../static/icon/trash-can-lined.svg" alt="#" class="del">
+                    </div>
                     <div class="info-image">
                         <img src="#" alt="#"> 
                     </div>
@@ -50,7 +54,7 @@
                 </div>
             </div>
 
-            <!-- Modal -->
+            <!--share Modal -->
             <div id="overlay" class="share-overlay">
                 <div class="fieldset">
 
@@ -106,9 +110,68 @@
                     </table>
 
                     <div class="modal-btn-area">
-                        <!-- <input type="submit" class="submit" value="작성하기"> -->
                         <button class="submit">작성하기</button>
                         <button class="cancel">취소하기</button>
+                    </div>
+                </div>
+            </div>
+            <!-- edit modal -->
+            <div id="overlay" class="edit-overlay">
+                <div class="fieldset">
+                    <div class="title">
+                        <p>나만의 맛집 공유하기</p>
+                        <div><img src="../static/img/logo.png" alt="logo"></div>
+                    </div>
+
+                    <table>
+                        <colgroup>
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td class="name box">
+                                    <label for="edit-name">
+                                        <input type="text" id="edit-name" name="edit-name" maxlength="12" size="35"
+                                            placeholder="맛집이름을 적어줘" autofocus>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-star box">
+                                    <select name="edit-star" id="edit-star" size="1">
+                                        <option value="0">별점 선택하기</option>
+                                        <option value="1">⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-comment box">
+                                    <textarea name="edit-comment" id="edit-comment" cols="30" rows="5"
+                                        placeholder="후기를 적어줘"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-image box">
+                                    <input type="text" id="edit-img" name="edit-img" size="35"
+                                        placeholder="이미지 url을 적어줘">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modal-pw box">
+                                    <input type="password" id="edit-pw" name="edit-pw" maxlength="15" size="35"
+                                        placeholder="비밀번호를 적어줘" >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="modal-btn-area">
+                        <button class="edit-submit">수정하기</button>
+                        <button class="edit-cancel">취소하기</button>
                     </div>
                 </div>
             </div>

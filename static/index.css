@@ -144,7 +144,10 @@ section.inner {
 
 .share-overlay input,
 .share-overlay textarea,
-.share-overlay select {
+.share-overlay select,
+.edit-overlay input,
+.edit-overlay textarea,
+.edit-overlay select {
     margin: 0;
     padding: 15px;
     border-radius: 0;
@@ -154,7 +157,7 @@ section.inner {
     vertical-align: middle;
 }
 
-.share-overlay button {
+.share-overlay button, .edit-overlay button {
     border: 0;
     font-size: 16px;
 }
@@ -164,7 +167,7 @@ label {
     height: 100%;
 }
 
-.share-overlay, .info-overlay {
+.share-overlay, .info-overlay, .edit-overlay {
     height: 100%;
     width: 100%;
     display: none;
@@ -174,12 +177,6 @@ label {
     left: 0;
     background-color: rgba(0, 0, 0, 0.9);
 }
-
-/* 게시글 모달 */
-
-/* .info-overlay {
-    display: block;
-} */
 
 .info-flex {
     display: flex;
@@ -224,9 +221,26 @@ label {
     margin-bottom: 20px;
 }
 
+.edit-icons {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    /* background-color: #fff; */
+}
+
+.edit-icons > img {
+    cursor: pointer;
+    width: 40px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+
 /* 게시글 작성 모달 */
 
-.share-overlay > div.fieldset {
+ div.fieldset {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -269,14 +283,14 @@ label {
     margin-top: 15px;
 }
 
-#star {
+#star, #edit-star {
     width: 330px;
     padding: 0;
     margin: 15px;
     color: #707070;
 }
 
-#comment {
+#comment, #edit-comment {
     width: 100%;
     border-radius: 5%;
     resize: none;

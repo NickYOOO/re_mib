@@ -40,5 +40,11 @@ def reviews_get():
 
     return jsonify({'result':all_reviews})
 
+@app.route("/reviews/<id>", methods=["DELETE"])
+def reviews_delete(id):
+    # 데이터베이스에서 해당 ID 값을 가진 리뷰를 삭제합니다.
+    db.reviews.delete_one({"_id": ObjectId(id)})
+    return jsonify({"msg": "삭제 완료!"})
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
