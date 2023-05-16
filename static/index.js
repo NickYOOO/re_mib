@@ -4,7 +4,7 @@ $(function() {
     });
 
     function listing() {
-        //Get listing
+
         fetch('/reviews').then((res) => res.json()).then((data) => {
             let rows = data['result'];
             $('#columns').empty();
@@ -14,10 +14,11 @@ $(function() {
                 let name = a['name'];
                 let star = a['star'];
                 let comment = a['comment'];
+                let _id = a['_id'];
     
                 let star_repeat = '⭐'.repeat(star);
 
-                let temp_html = `<figure class="content">
+                let temp_html = `<figure class="content" data-num="${_id}">
                                     <img src="${image}">
                                     <h3 class="name">${name}</h3>
                                     <p class="star">${star_repeat}</p>
@@ -26,7 +27,7 @@ $(function() {
                 $('#columns').prepend(temp_html);
             });
 
-            //  info Modal
+            //  게시글 모달
             $('.content').click(function() {
                 let info_modal = $('.info-overlay');
 
@@ -34,20 +35,24 @@ $(function() {
                 let $name = $(this).children('h3').text();
                 let $star = $(this).children('p').text();
                 let $comment = $(this).children('figcaption').text();
+                let _id = $(this).data('num');
 
                 $('.info-image img').attr('src',`${$image}`);
                 $('.info-name').text($name);
                 $('.info-star').text($star);
                 $('.info-comment').text($comment);
 
+                $('.info-overlay').attr('data-num', _id);
+
                 info_modal.css({
                     'display' : 'block'
                 });
             });
+
         });
-        
-        //  icon hover
-           $('.edit-icons .edit').hover(function() {
+
+        //  아이콘 호버
+        $('.edit-icons .edit').hover(function() {
             $(this).attr('src','../static/icon/pencil-filled.svg');
         }, function() {
             $(this).attr('src','../static/icon/pencil-lined.svg');
@@ -60,7 +65,7 @@ $(function() {
         });
 
     }
-    
+
     function save_remin() {
         let name = $('#aname').val();
         let star = $('#star').val();
@@ -81,7 +86,12 @@ $(function() {
         });
     }
 
+    
+    $('.edit-submit').click(update);
+    
     function info_load() {   //  게시글 정보 input에 불러오기
+        let this_data = $('.info-overlay').data('num');
+        console.log(this_data)
         let $img = $('.info-image img').attr('src');
         let $name = $('.info-name').text();
         let $comment = $('.info-comment').text();
@@ -92,35 +102,73 @@ $(function() {
     }
 
     function update() {     //  미완
-        let all_id = new Array();
+        let check_info = new Array();
         fetch('/reviews').then((res) => res.json()).then((data) => {
             let review = data['result'];
 
             for(let i in review) {
-                let $id = review[i]['_id'];
                 let $pw = review[i]['pw'];
-                all_id[i] = {'id' : $id, 'pw': $pw};
+                check_info[i] = {
+                    'id' : $id, 
+                    'pw': $pw
+                };
             }
         });
-        console.log(all_id);
-        console.log($('.info-name').text())
 
-        let info = $('.info-overlay');
-        let share = $('.edit-overlay');
-
-        info.css('display', 'none');
-        share.css('display', 'block');       
-    }
-
-    $('.info-flex .edit').click(function() {    //  수정버튼 클릭 시
         let info = $('.info-overlay');
         let share = $('.edit-overlay');
 
         info.css('display', 'none');
         share.css('display', 'block');
 
+        // let check_pw = 1;
+        let $check_pw = $('#edit-pw').val();
+        let $id = $('.info-overlay').data('num');
+
+        if( 1 == $check_pw ) {
+            let name = $('#edit-name').val();
+            let star = $('#edit-star').val();
+            let comment = $('#edit-comment').val();
+            let img = $('#edit-img').val();
+            let pw = $('#edit-pw').val();
+            console.log(star.length)
+
+            let id = $id;
+
+            let formData = new FormData();
+            formData.append("name_give", name);
+            formData.append("star_give", star);
+            formData.append("comment_give", comment);
+            formData.append("img_give", img);
+            formData.append("pw_give", pw);
+            formData.append("_id_give", id);
+            
+            fetch(`/reviews/update`, { method: "POST", 
+                body: formData
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data['msg']);
+                window.location.reload();
+            });
+        }
+        
+    }
+
+    $('.info-flex .edit').click(function() {    //  수정버튼 클릭 시
+        let info = $('.info-overlay');
+        let share = $('.edit-overlay');
+        let _id = $('.info-overlay').data('id');
+
+        $('.edit-overlay').attr('data-id', _id);
+
+        info.css('display', 'none');
+        share.css('display', 'block');
+
         info_load();
     });
+
+
     
     //  게시글 모달 영역 밖 클릭 시 모달창 닫기
     $(document).click(function(e) {
@@ -131,7 +179,7 @@ $(function() {
         }
     });
 
-    //   share Modal
+    //  공유하기 모달
 
     $('.share').click(function() {
         let share_modal = $('.share-overlay');
@@ -160,6 +208,8 @@ $(function() {
     //  공유하기 유효성 검사
     $('.submit').click(share_check);
     $('.edit-submit').click(edit_check);    
+
+
     function share_check() {
         const checkName = $('#overlay #aname');
         const checkStar = $('#overlay #star');
@@ -191,8 +241,8 @@ $(function() {
             save_remin();
         }
     }
-    
-     function edit_check() {
+
+    function edit_check() {
         const checkName = $('#overlay #edit-name');
         const checkStar = $('#overlay #edit-star');
         const checkComment = $('#overlay #edit-comment');
